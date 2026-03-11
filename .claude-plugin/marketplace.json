@@ -1,9 +1,9 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "my-org-marketplace",
+  "name": "claude-plugins",
   "owner": {
-    "name": "MY_ORG",
-    "email": "dev@my-org.com"
+    "name": "DonghyunJo",
+    "email": "donghyun@bagelcode.com"
   },
   "plugins": [
     {

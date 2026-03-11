@@ -1,6 +1,6 @@
-# my-org-marketplace
+# claude-plugins
 
-우리 팀의 Claude Code 플러그인 마켓플레이스
+GS팀의 Claude Code 플러그인 마켓플레이스
 
 ## 포함된 플러그인
 
@@ -12,10 +12,10 @@
 
 ```bash
 # 1. 마켓플레이스 추가
-/plugin marketplace add MY_ORG/my-org-marketplace
+/plugin marketplace add bagelcode-gamestudio/claude-plugins
 
 # 2. 플러그인 설치
-/plugin install starter@my-org-marketplace
+/plugin install starter@claude-plugins
 ```
 
 ## 로컬 테스트 (GitHub에 올리기 전)
@@ -23,7 +23,7 @@
 ```bash
 # 이 레포를 clone한 디렉토리에서
 /plugin marketplace add .
-/plugin install starter@my-org-marketplace
+/plugin install starter@claude-plugins
 ```
 
 ## 사용법
