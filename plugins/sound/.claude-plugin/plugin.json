@@ -1,0 +1,9 @@
+{
+  "name": "sound",
+  "version": "0.1.0",
+  "description": "Sound design tools. Audio naming conventions, FMOD/Wwise integration patterns, audio asset management, and mixing guidelines.",
+  "author": {
+    "name": "DonghyunJo"
+  },
+  "license": "MIT"
+}

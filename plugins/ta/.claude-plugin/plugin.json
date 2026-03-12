@@ -1,0 +1,9 @@
+{
+  "name": "ta",
+  "version": "0.1.0",
+  "description": "Technical art pipeline tools. Asset import rules, texture optimization, shader guide, LOD settings, and performance budgets.",
+  "author": {
+    "name": "DonghyunJo"
+  },
+  "license": "MIT"
+}

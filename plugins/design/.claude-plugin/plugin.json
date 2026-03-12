@@ -1,0 +1,9 @@
+{
+  "name": "design",
+  "version": "0.1.0",
+  "description": "Game design tools. System spec templates, balance sheet validation, data table rules, and feature documentation.",
+  "author": {
+    "name": "DonghyunJo"
+  },
+  "license": "MIT"
+}

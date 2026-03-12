@@ -7,11 +7,52 @@
   },
   "plugins": [
     {
-      "name": "starter",
-      "description": "Team starter plugin with review command and coding conventions skill",
-      "source": "./plugins/starter",
+      "name": "dev",
+      "description": "Development tools for client (Unity/C#) and server (Node.js/TS). Code review, system scaffolding, DB migration, Git workflow, and team conventions.",
+      "source": "./plugins/dev",
       "version": "0.1.0",
-      "category": "development"
+      "category": "development",
+      "keywords": ["unity", "csharp", "nodejs", "typescript", "code-review", "git"]
+    },
+    {
+      "name": "qa",
+      "description": "QA and testing tools. Test case generation, bug report templates, regression checks, and test automation patterns.",
+      "source": "./plugins/qa",
+      "version": "0.1.0",
+      "category": "testing",
+      "keywords": ["testing", "qa", "bug-report", "regression", "automation"]
+    },
+    {
+      "name": "ta",
+      "description": "Technical art pipeline tools. Asset import rules, texture optimization, shader guide, LOD settings, and performance budgets.",
+      "source": "./plugins/ta",
+      "version": "0.1.0",
+      "category": "art",
+      "keywords": ["technical-art", "asset-pipeline", "shader", "optimization", "unity"]
+    },
+    {
+      "name": "design",
+      "description": "Game design tools. System spec templates, balance sheet validation, data table rules, and feature documentation.",
+      "source": "./plugins/design",
+      "version": "0.1.0",
+      "category": "design",
+      "keywords": ["game-design", "spec", "balance", "data-table", "documentation"]
+    },
+    {
+      "name": "sound",
+      "description": "Sound design tools. Audio naming conventions, FMOD/Wwise integration patterns, audio asset management, and mixing guidelines.",
+      "source": "./plugins/sound",
+      "version": "0.1.0",
+      "category": "audio",
+      "keywords": ["sound", "audio", "fmod", "wwise", "mixing"]
+    },
+    {
+      "name": "pm",
+      "description": "Project management tools. Sprint summaries, milestone tracking, meeting note templates, and cross-team communication helpers.",
+      "source": "./plugins/pm",
+      "version": "0.1.0",
+      "category": "management",
+      "keywords": ["project-management", "sprint", "milestone", "meeting", "communication"]
     }
   ]
 }

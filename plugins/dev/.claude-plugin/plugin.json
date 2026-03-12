@@ -1,0 +1,9 @@
+{
+  "name": "dev",
+  "version": "0.1.0",
+  "description": "Development tools for client (Unity/C#) and server (Node.js/TS). Code review, system scaffolding, DB migration, Git workflow, and team conventions.",
+  "author": {
+    "name": "DonghyunJo"
+  },
+  "license": "MIT"
+}

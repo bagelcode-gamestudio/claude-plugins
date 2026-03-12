@@ -1,0 +1,9 @@
+{
+  "name": "qa",
+  "version": "0.1.0",
+  "description": "QA and testing tools. Test case generation, bug report templates, regression checks, and test automation patterns.",
+  "author": {
+    "name": "DonghyunJo"
+  },
+  "license": "MIT"
+}

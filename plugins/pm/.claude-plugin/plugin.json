@@ -1,0 +1,9 @@
+{
+  "name": "pm",
+  "version": "0.1.0",
+  "description": "Project management tools. Sprint summaries, milestone tracking, meeting note templates, and cross-team communication helpers.",
+  "author": {
+    "name": "DonghyunJo"
+  },
+  "license": "MIT"
+}
