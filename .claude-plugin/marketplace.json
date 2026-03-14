@@ -8,11 +8,11 @@
   "plugins": [
     {
       "name": "dev",
-      "description": "Development tools for client (Unity/C#) and server (Node.js/TS). Code review, system scaffolding, DB migration, Git workflow, and team conventions.",
+      "description": "Slot game server development tools. Server logic implementation, simulation, bonus systems, feature patterns, math model, and coding conventions.",
       "source": "./plugins/dev",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "category": "development",
-      "keywords": ["unity", "csharp", "nodejs", "typescript", "code-review", "git"]
+      "keywords": ["slot", "games-server", "rng", "rtp", "bonus", "simulation", "typescript"]
     },
     {
       "name": "qa",

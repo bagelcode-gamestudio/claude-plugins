@@ -6,7 +6,7 @@ GS팀의 Claude Code 플러그인 마켓플레이스
 
 | 플러그인 | 설명 | 커맨드 | 스킬 |
 |---------|------|--------|------|
-| **dev** | 클라이언트(Unity/C#) · 서버(Node.js/TS) 개발 도구 | `/dev:code-review` | `conventions` |
+| **dev** | 슬롯 게임 서버 개발 도구 | `/dev:slot-server-impl` `/dev:run-sim` | `conventions` `slot-server-dev` `math-model` `bonus-flow` `spin-flow` `game-mapping` `run-simulation` `blackboard-path` `contents-event` `new-api` `engine-architecture` `feature-patterns` `data-systems` `coding-rules` |
 | **qa** | QA · 테스트 도구 | `/qa:test-case` | `bug-report` |
 | **ta** | 테크니컬 아트 파이프라인 도구 | `/ta:asset-check` | `performance-budget` |
 | **design** | 기획 도구 | `/design:spec-review` | `data-table-rules` |
@@ -37,7 +37,8 @@ GS팀의 Claude Code 플러그인 마켓플레이스
 
 ```bash
 # 커맨드: 직접 호출
-/dev:code-review src/app.ts
+/dev:slot-server-impl 343
+/dev:run-sim bbd
 /qa:test-case 로그인 기능
 /design:spec-review docs/gacha-spec.md
 

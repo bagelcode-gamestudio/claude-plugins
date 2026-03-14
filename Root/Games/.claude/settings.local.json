@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(chmod:*)",
+      "Bash(sudo rm:*)",
+      "Bash(npx eslint:*)",
+      "Bash(code:*)"
+    ]
+  },
+  "outputStyle": "default"
+}
