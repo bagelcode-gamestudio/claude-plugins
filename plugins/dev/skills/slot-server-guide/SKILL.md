@@ -1,14 +1,66 @@
 ---
-description: "Games server coding rules. Data reference rules, ESLint conventions, schema type syntax."
+description: "Slot server implementation guide. Game logic patterns, coding rules, bonus creation, ESLint conventions."
 globs:
   - "**/slot_game/*.ts"
   - "**/slot_game/*.value.ts"
   - "**/slot_game/*.interface.ts"
 ---
 
-# 게임 로직 개발 필수 규칙
+# Slot Server Guide
 
-## 데이터 참조 규칙
+When implementing or modifying slot game server logic, follow these patterns and rules.
+
+## File Structure (3 files per game)
+
+```
+games/src/slot_game/
+├── {game_code}.ts           # Main game logic
+├── {game_code}.value.ts     # Reel strips, pay tables, probability constants
+└── {game_code}.interface.ts # TypeScript types (CustomData, bonus responses)
+```
+
+## Game Class Structure
+
+```typescript
+export class GameXXX extends SlotGame {
+  async spin(request): Promise<SpinResponse> { ... }
+  async claim(request): Promise<ClaimResponse> { ... }
+  calcWin(grid, betCredit): WinResult { ... }
+  checkBonusTrigger(grid): BonusList { ... }
+}
+```
+
+## Core Principles
+
+- **Server-Authoritative RNG**: All random numbers generated on server
+- **Programmed Win/Loss**: RTP managed via `getSlotGameResultWithProgrammedLoss()`
+- **Bonus ID**: `gameId * 100 + sequence` (e.g., 343 -> 34300, 34301...)
+- **Ticket Bonus**: `gameId * 100 + 50` (e.g., 343 -> 34350)
+
+## API Response Structure
+
+```typescript
+{
+  result: {
+    reelOutputList: number[][],
+    earnCredit: number,
+  },
+  bonusList: [{
+    bonusId: number,
+    bonusData: any,
+  }],
+  customData: {
+    CustomDataXXX: { ... }
+  },
+  user_sync_info: {
+    credit: number,
+  }
+}
+```
+
+---
+
+## Data Reference Rules
 
 1. **reel_sequence_list 사용**: 릴 스트립을 직접 생성하지 말고, 반드시 `.value.ts` 파일에 정의된 `reel_sequence_list`를 사용할 것
 
@@ -79,11 +131,9 @@ case SLOT_DEBUG.INSTANT_BONUS:
 
 ```typescript
 if (modifiedDebugParam?.force_instant_bonus && !isFreeSpin) {
-  // superBonusInfo는 RTP로 키 지정됨 (level이 아님!)
   const superBonusWeights = superBonusInfo[rtp];
   const spinCount = superBonusWeights.super_free_spin_count;
 
-  // free_spin 세션 설정
   gameSession.free_spin = {
     type: SLOT.FREE_SPIN.NORMAL,
     bet: baseBet + extraBet,
@@ -96,10 +146,9 @@ if (modifiedDebugParam?.force_instant_bonus && !isFreeSpin) {
     extra_data: { /* 보너스별 커스텀 데이터 */ },
   };
 
-  // 빈 결과 반환 - 시뮬레이터가 free_spin 세션을 감지함
   return {
     result: { earn_credit: 0, reel_output_list: [], ... },
-    bonusResultList: [],  // 빈 배열!
+    bonusResultList: [],
     symbolCountInfo: {},
     extraData: { ... },
   };
@@ -112,16 +161,13 @@ if (modifiedDebugParam?.force_instant_bonus && !isFreeSpin) {
 const game = new Game();
 (Game as any).simulationSuperBonusLevel = level;
 const simulator = new Simulator(VALUE.game_id, baseBet, game);
-// InstantBonusSimulator가 자동으로 INSTANT_BONUS (400) 설정
 ```
 
 ---
 
-## 보너스 생성 패턴
+## Bonus Creation Pattern
 
 ### _GenerateBonusResult 함수
-
-각 게임에서 보너스를 생성할 때 사용하는 핵심 함수입니다.
 
 ```typescript
 function _GenerateBonusResult(
@@ -162,7 +208,7 @@ export const CLAIM_TYPE = {
 ```typescript
 export const bonusType = {
   EXISTING_BONUS: { BONUS_ID: gameId * 100 + 0 },
-  NEW_BONUS: { BONUS_ID: gameId * 100 + sequence },  // 추가
+  NEW_BONUS: { BONUS_ID: gameId * 100 + sequence },
 } as const;
 ```
 
@@ -171,7 +217,6 @@ export const bonusType = {
 ```typescript
 export interface INewBonusResponse {
   custom_field: number;
-  // 필요한 필드 추가
 }
 ```
 
@@ -203,10 +248,8 @@ bonus_list: [
 ### 주의사항
 
 - **베이스 게임 vs 프리게임**: 보너스 트리거 조건이 게임 모드에 따라 다를 수 있음
-  - `getNormalGameResult()`: 베이스 게임
-  - `getFreeGameResult()`: 프리게임
 - **연출 전용 보너스**: `earnCredit: 0`, `claimType: NONE`으로 설정
-- **보너스 ID 규칙**: `gameId × 100 + sequence` (예: MSL 338 → 33800, 33801, ...)
+- **보너스 ID 규칙**: `gameId × 100 + sequence`
 
 ---
 
@@ -237,8 +280,6 @@ barbarian_positions?: { reel: number; row: number; symbol: number }[];
 
 ## TypeScript/ESLint 코딩 규약
 
-> 코드 작성 시 아래 ESLint 규칙을 반드시 준수하세요.
-
 ### 1. Import 규칙 (no-duplicate-imports)
 
 같은 모듈에서 여러 번 import하지 마세요. 한 줄로 통합하세요.
@@ -246,8 +287,6 @@ barbarian_positions?: { reel: number; row: number; symbol: number }[];
 | 사용 금지 | 사용 권장 |
 |-----------|-----------|
 | `import { VALUE } from './game';`<br>`import Game from './game';` | `import Game, { VALUE } from './game';` |
-
-**이유**: 코드 중복 방지, 가독성 향상, 번들 최적화
 
 ### 2. 파일 끝 줄바꿈 (eol-last)
 
@@ -271,7 +310,6 @@ simulator.runParallel();
 | 사용 금지 | 사용 권장 |
 |-----------|-----------|
 | `{ "1": value, "2": value }` | `{ 1: value, 2: value }` |
-| `{ "count": 0, "sum": 0 }` | `{ count: 0, sum: 0 }` |
 
 **예외**: 특수 문자가 포함된 키는 따옴표 필요 (예: `{ "4+": 0 }`)
 
@@ -319,11 +357,15 @@ if (condition) {
 ## 코드 작성 전 체크리스트
 
 ```markdown
-[ ] Import 문이 중복되지 않았는가?
-[ ] 파일 끝에 빈 줄이 있는가?
-[ ] 객체 키에 불필요한 따옴표가 없는가?
-[ ] Switch문에 default case가 있는가?
-[ ] 들여쓰기가 2 spaces인가?
+[ ] reel_sequence_list 사용 (하드코딩 X)
+[ ] PayTable 참조 (하드코딩 X)
+[ ] Weight 총합 배열로 정의 (RTP별)
+[ ] Array<T> 대신 T[] 사용
+[ ] Import 문 중복 없음
+[ ] 파일 끝 빈 줄
+[ ] Switch문 default case
+[ ] 2-space indent
+[ ] Mystery Symbol fallback 로직
 ```
 
 ---
@@ -340,12 +382,9 @@ if (condition) {
 
 ## 디버깅 및 로깅
 
-### 로그 레벨
-
 ```typescript
-// Winston 로거 설정
 const logger = winston.createLogger({
-    level: 'info',  // debug, info, warn, error
+    level: 'info',
     format: winston.format.json(),
     transports: [
         new winston.transports.Console(),
@@ -353,17 +392,15 @@ const logger = winston.createLogger({
     ]
 });
 
-// 사용
 logger.info('Spin result', { gameId, earnCredit, bonusCount: bonusList.length });
 logger.debug('RNG values', { reelOutputList });
 ```
 
-### 디버그 모드
-
 ```bash
-# 상세 로그 출력
-DEBUG=* npm start:debug
-
-# 특정 모듈만 디버그
-DEBUG=games:slot npm start:debug
+DEBUG=* npm start:debug          # 전체 디버그
+DEBUG=games:slot npm start:debug # 슬롯만 디버그
 ```
+
+## Schema Sync Reminder
+
+When modifying `.interface.ts`, remind the user about client Schema.json sync.
