@@ -2,7 +2,6 @@
 description: "Game data persistence systems. ContentsStore, GameProgress, CustomData patterns and lifecycle."
 globs:
   - "**/slot_game/*.interface.ts"
-  - "**/slot_game/*.ts"
 ---
 
 # ContentsStore / GameProgress / CustomData 시스템

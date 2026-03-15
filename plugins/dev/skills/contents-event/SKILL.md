@@ -1,7 +1,6 @@
 ---
 description: "Feature Module/Controller event communication spec. BT/FSM to script event patterns."
 globs:
-  - "**/slot_game/*.ts"
   - "**/*Controller*.cs"
   - "**/*Module*.cs"
 ---

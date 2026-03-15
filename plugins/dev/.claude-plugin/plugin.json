@@ -1,7 +1,7 @@
 {
   "name": "dev",
   "version": "0.1.0",
-  "description": "Development tools for slot game server (Node.js/TS). Slot server implementation, simulation, bonus systems, feature patterns, and coding conventions.",
+  "description": "Development tools. Slot game implementation, simulation, bonus systems, feature patterns, and coding conventions.",
   "author": {
     "name": "DonghyunJo"
   },

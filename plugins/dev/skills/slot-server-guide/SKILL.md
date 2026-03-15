@@ -30,12 +30,40 @@ export class GameXXX extends SlotGame {
 }
 ```
 
+## File Locations
+
+| 타입 | 경로 |
+|------|------|
+| 서버 게임 로직 | `games/src/slot_game/{game_name}.ts` |
+| 서버 인터페이스 | `games/src/slot_game/{game_name}.interface.ts` |
+| 서버 값 정의 | `games/src/slot_game/{game_name}.value.ts` |
+| 클라이언트 Schema | `client/Assets/Contents/Contents Group 1/{GameName}/Data/Schema.json` |
+
 ## Core Principles
 
 - **Server-Authoritative RNG**: All random numbers generated on server
 - **Programmed Win/Loss**: RTP managed via `getSlotGameResultWithProgrammedLoss()`
-- **Bonus ID**: `gameId * 100 + sequence` (e.g., 343 -> 34300, 34301...)
-- **Ticket Bonus**: `gameId * 100 + 50` (e.g., 343 -> 34350)
+
+### Bonus ID Convention
+
+```
+기본 보너스: gameId × 100 + 0~9
+├─ +00: Free Spin (주요 보너스)
+├─ +01: Jackpot / 보조 보너스
+├─ +02: Retrigger / 라이트닝
+├─ +03: 멀티플라이어 / 특수
+├─ +04: Pre-Event / Fake
+└─ +05~09: 게임별 추가 피처
+
+티켓형 보너스: gameId × 100 + 50~99
+├─ +50: Buy a Bonus (기본)
+├─ +51: Buy a Bonus Lv2
+└─ +52: Buy a Bonus Lv3
+```
+
+**예시** (게임 343):
+- 34300: Free Game, 34301: Pick Bonus, 34302: Lightning
+- 34350: Buy A Bonus
 
 ## API Response Structure
 

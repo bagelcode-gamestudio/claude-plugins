@@ -1,8 +1,9 @@
 ---
 description: "Blackboard data path guide. Server response to client Blackboard mapping."
 globs:
-  - "**/slot_game/*.ts"
-  - "**/slot_game/*.interface.ts"
+  - "**/*Controller*.cs"
+  - "**/*Module*.cs"
+  - "**/FSM/**/*.asset"
 ---
 
 # Blackboard 경로 가이드

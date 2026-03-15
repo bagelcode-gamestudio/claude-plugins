@@ -1,8 +1,8 @@
 ---
 description: "Full spin flow guide. Client-server-engine spin lifecycle."
 globs:
-  - "**/slot_game/*.ts"
   - "**/GAMES/*.ts"
+  - "**/LOGIC/routes/*.ts"
 ---
 
 # 게임 스핀 전체 플로우
