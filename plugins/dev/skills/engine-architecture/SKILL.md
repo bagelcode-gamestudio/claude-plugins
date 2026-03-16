@@ -1,5 +1,6 @@
 ---
 description: "Games engine architecture. Core modules, interfaces, spin processing flow, programmed win/loss."
+user-invocable: false
 globs:
   - "**/GAMES/*.ts"
   - "**/game_manager.ts"

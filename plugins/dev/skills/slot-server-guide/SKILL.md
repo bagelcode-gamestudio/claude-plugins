@@ -1,5 +1,6 @@
 ---
 description: "Slot server implementation guide. Game logic patterns, coding rules, bonus creation, ESLint conventions."
+user-invocable: false
 globs:
   - "**/slot_game/*.ts"
   - "**/slot_game/*.value.ts"

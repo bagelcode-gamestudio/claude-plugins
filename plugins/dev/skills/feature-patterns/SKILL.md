@@ -1,5 +1,6 @@
 ---
 description: "Server-side feature implementation patterns. Hold&Spin, Cascade, Nudge, Mystery, Wheel, and more."
+user-invocable: false
 globs:
   - "**/slot_game/*.ts"
   - "**/slot_game/*.bonus.ts"

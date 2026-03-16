@@ -1,5 +1,6 @@
 ---
 description: "Game data persistence systems. ContentsStore, GameProgress, CustomData patterns and lifecycle."
+user-invocable: false
 globs:
   - "**/slot_game/*.interface.ts"
 ---
