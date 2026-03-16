@@ -1,5 +1,6 @@
 ---
 description: "Full spin flow guide. Client-server-engine spin lifecycle."
+user-invocable: false
 globs:
   - "**/GAMES/*.ts"
   - "**/LOGIC/routes/*.ts"

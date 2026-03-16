@@ -1,5 +1,6 @@
 ---
 description: "New API endpoint addition guide for LOGIC server."
+user-invocable: false
 globs:
   - "**/LOGIC/routes/*.ts"
   - "**/LOGIC/app.ts"

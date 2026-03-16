@@ -1,5 +1,6 @@
 ---
 description: "Bonus lifecycle guide. Free spins, pick bonus, lightning, hold and spin implementation."
+user-invocable: false
 globs:
   - "**/slot_game/*.ts"
   - "**/slot_game/*.bonus.ts"

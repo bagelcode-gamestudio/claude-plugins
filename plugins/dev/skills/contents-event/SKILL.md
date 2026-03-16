@@ -1,5 +1,6 @@
 ---
 description: "Feature Module/Controller event communication spec. BT/FSM to script event patterns."
+user-invocable: false
 globs:
   - "**/*Controller*.cs"
   - "**/*Module*.cs"

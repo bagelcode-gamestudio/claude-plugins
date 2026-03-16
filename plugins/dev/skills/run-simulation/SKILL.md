@@ -1,5 +1,6 @@
 ---
 description: "Slot game simulation execution and RTP verification guide."
+user-invocable: false
 globs:
   - "**/slot_simulation/*.ts"
 ---

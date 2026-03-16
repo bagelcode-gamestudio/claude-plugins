@@ -1,5 +1,6 @@
 ---
 description: Slot game math model design guide. Reel strips, probabilities, pay tables, RTP calculation.
+user-invocable: false
 globs:
   - "**/*.value.ts"
   - "**/slot_simulation/*.ts"

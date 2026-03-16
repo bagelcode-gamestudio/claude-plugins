@@ -1,5 +1,6 @@
 ---
 description: "Blackboard data path guide. Server response to client Blackboard mapping."
+user-invocable: false
 globs:
   - "**/*Controller*.cs"
   - "**/*Module*.cs"
