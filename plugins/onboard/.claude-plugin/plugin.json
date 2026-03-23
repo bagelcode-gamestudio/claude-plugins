@@ -1,0 +1,9 @@
+{
+  "name": "onboard",
+  "version": "0.1.0",
+  "description": "GS marketplace onboarding. Connects marketplace, detects user role, installs relevant plugins.",
+  "author": {
+    "name": "bagelcode-gamestudio"
+  },
+  "license": "MIT"
+}
