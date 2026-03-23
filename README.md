@@ -12,14 +12,29 @@ GS팀의 Claude Code 플러그인 마켓플레이스
 | **design** | 기획 도구 | `/design:spec-review` | `data-table-rules` |
 | **sound** | 사운드 디자인 도구 | `/sound:audio-check` | `naming-conventions` |
 | **pm** | 프로젝트 관리 도구 | `/pm:sprint-summary` | `meeting-notes` |
+| **adb-mcp** | Adobe MCP 설정 가이드 | `/adb-mcp:setup` | `adb-mcp-setup` |
+| **onboard** | 마켓플레이스 온보딩 | `/onboard:setup` | `marketplace-guide` |
+| **gws-cli-setup** | Google Workspace CLI 설치/설정 | `/gws-cli-setup` | `gws-cli-setup` |
 
-## 설치 방법
+## 빠른 시작 (새 환경)
 
 ```bash
 # 1. 마켓플레이스 추가
 /plugin marketplace add bagelcode-gamestudio/claude-plugins
 
-# 2. 플러그인 설치 (필요한 것만 골라서)
+# 2. 온보딩 실행 — 역할 선택 후 자동 설치
+/onboard:setup
+
+# 또는 역할 직접 지정
+/onboard:setup dev
+/onboard:setup dev,qa
+/onboard:setup all
+```
+
+## 수동 설치
+
+```bash
+# 필요한 플러그인만 골라서
 /plugin install dev@claude-plugins
 /plugin install qa@claude-plugins
 /plugin install design@claude-plugins

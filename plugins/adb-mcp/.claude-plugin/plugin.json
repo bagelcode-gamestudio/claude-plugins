@@ -1,0 +1,9 @@
+{
+  "name": "adb-mcp",
+  "version": "0.1.0",
+  "description": "Adobe MCP (adb-mcp) setup guide — connect Photoshop, Premiere, After Effects, Illustrator, InDesign to Claude via MCP.",
+  "author": {
+    "name": "bagelcode-gamestudio"
+  },
+  "license": "MIT"
+}
