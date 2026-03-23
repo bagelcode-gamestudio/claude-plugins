@@ -53,6 +53,14 @@
       "version": "0.1.0",
       "category": "management",
       "keywords": ["project-management", "sprint", "milestone", "meeting", "communication"]
+    },
+    {
+      "name": "adb-mcp",
+      "description": "Adobe MCP setup guide. Connect Photoshop, Premiere Pro, After Effects, Illustrator, InDesign to Claude via MCP with step-by-step GATE verification.",
+      "source": "./plugins/adb-mcp",
+      "version": "0.1.0",
+      "category": "development",
+      "keywords": ["adobe", "mcp", "photoshop", "premiere", "after-effects", "illustrator", "indesign", "creative-tools", "setup"]
     }
   ]
 }
