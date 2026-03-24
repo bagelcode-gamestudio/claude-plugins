@@ -1,6 +1,6 @@
 {
   "name": "photoshop-mcp",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Photoshop MCP setup guide — connect Photoshop to Claude via self-extending MCP server with 62+ tools.",
   "author": {
     "name": "bagelcode-gamestudio"
