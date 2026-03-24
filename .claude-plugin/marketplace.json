@@ -63,6 +63,14 @@
       "keywords": ["adobe", "mcp", "photoshop", "premiere", "after-effects", "illustrator", "indesign", "creative-tools", "setup"]
     },
     {
+      "name": "photoshop-mcp",
+      "description": "Photoshop MCP setup guide. Connect Photoshop to Claude with 62+ self-extending tools, proxy server, and UXP plugin.",
+      "source": "./plugins/photoshop-mcp",
+      "version": "0.1.0",
+      "category": "art",
+      "keywords": ["photoshop", "mcp", "adobe", "art", "layer-styles", "self-extending", "tools"]
+    },
+    {
       "name": "onboard",
       "description": "Marketplace onboarding. Connects GS marketplace, detects role, installs relevant plugins in one command.",
       "source": "./plugins/onboard",
