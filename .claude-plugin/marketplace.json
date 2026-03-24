@@ -77,6 +77,14 @@
       "version": "0.1.0",
       "category": "management",
       "keywords": ["onboarding", "setup", "marketplace", "install", "getting-started"]
+    },
+    {
+      "name": "gws-cli-setup",
+      "description": "Google Workspace CLI (gws) installation and setup automation — dependency detection, CLI installation, OAuth configuration, and end-to-end verification.",
+      "source": "./plugins/gws-cli-setup",
+      "version": "1.0.0",
+      "category": "development",
+      "keywords": ["google-workspace", "gws", "cli", "setup", "oauth", "drive", "gmail", "calendar"]
     }
   ]
 }

@@ -1,0 +1,5 @@
+{
+  "name": "gws-cli-setup",
+  "version": "1.0.0",
+  "description": "Google Workspace CLI (gws) installation and setup automation — dependency detection, CLI installation, OAuth configuration, and end-to-end verification."
+}
